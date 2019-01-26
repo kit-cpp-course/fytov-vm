@@ -23,13 +23,6 @@ int main()
 {
 	char choice;
 
-	vector<Triangle> v1;
-	v1.push_back(Triangle(Vector(50, 50), Vector(100, 50), Vector(75, 100)));
-	v1.push_back(Triangle(Vector(100, 100), Vector(200, 100), Vector(150, 200)));
-	
-	vector<Triangle> * ptr = &v1;
-	//setlocale(LC_ALL, "ru");
-
 	cout << "Do you want to use graphic mode? (y/n)  ";
 	cin >> choice;
 
