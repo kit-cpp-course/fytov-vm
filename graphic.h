@@ -63,6 +63,9 @@ namespace earclipping_triangulation
 		// Очистка от многоугольника
 		static void clear();
 
+		// Процедура по закрытию окна
+		static void onCloseWindow();
+
 		// Создает многоугольник из sfml ConvexShape
 		static Polygon fromSFMLConvexShape(const sf::ConvexShape & shape);
 
@@ -140,6 +143,7 @@ namespace earclipping_triangulation
 		text_error.setFillColor(sf::Color::Red);
 		text_error.setStyle(text_error.Bold);
 		text_error.setPosition(windowCenter);
+		text_error.setString("");
 
 		drawingPoly.setOutlineColor(lineColor);
 		drawingPoly.setOutlineThickness(lineThickness);
@@ -207,11 +211,14 @@ namespace earclipping_triangulation
 
 						if (triangles.empty()) text_error.setString("Impossibly to triangulate this polygon");
 						else ConsoleMode::showTriangles();
+
+						// Прорисовка окна
+						draw();
 					}
 					// Старт триангуляции по шагам
 					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 					{
-						// Подготовка еременных
+						// Подготовка переменных
 						updatedPoly = fromSFMLConvexShape(drawingPoly);
 						updatedTriangles.clear();
 						currentVertex = 0;
@@ -233,15 +240,18 @@ namespace earclipping_triangulation
 							// Сброс таймера
 							sfmlClock.restart();
 						}
+
+						// Прорисовка окна
+						draw();
 					}
 					// Очистка многоугольника
 					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::C))
 					{
 						clear();
-					}
 
-					// Прорисовка окна
-					draw();
+						// Прорисовка окна
+						draw();
+					}
 				}
 			}
 
@@ -285,6 +295,9 @@ namespace earclipping_triangulation
 				}
 			}
 		}
+
+		// Перед закрытием окна
+		onCloseWindow();
 
 		cout << "\n--- CONSOLE MODE ---\n";
 
@@ -365,6 +378,11 @@ namespace earclipping_triangulation
 		triangles.clear();
 		polygon.clear();
 		ConsoleMode::showPolygon();
+	}
+
+	void GraphicMode::onCloseWindow()
+	{
+		triangulatingStepByStep = false;
 	}
 
 	Polygon GraphicMode::fromSFMLConvexShape(const sf::ConvexShape & shape)
