@@ -103,7 +103,7 @@ namespace earclipping_triangulation
 	{ 
 		for (size_t i = 0; i < p.vertices.size(); i++)
 		{
-			os << "Point" << i << "(" << p.vertices[i] << ")\n";
+			os << "Point" << i + 1 << "(" << p.vertices[i] << ")\n";
 		}
 		return os;
 	}
