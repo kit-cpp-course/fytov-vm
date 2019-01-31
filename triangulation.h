@@ -1,7 +1,9 @@
 // Описания в triangulation.cpp
 
 #pragma once
-#include <base_classes.h>
+#include <vector.h>
+#include <polygon.h>
+#include <triangle.h>
 
 namespace earclipping_triangulation
 {

@@ -3,10 +3,10 @@
 
 namespace earclipping_triangulation
 {
-	// РњРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє
+	// Многоугольник
 	Polygon polygon;
 
-	// РўСЂРµСѓРіРѕР»СЊРЅРёРєРё
+	// Треугольники
 	vector<Triangle> triangles;
 
 	//
@@ -16,28 +16,28 @@ namespace earclipping_triangulation
 	{
 	public:
 
-		// РџРѕРєР°Р·Р°С‚СЊ РјРµРЅСЋ
+		// Показать меню
 		static void showMenu();
 
-		// РџРѕРєР°Р·Р°С‚СЊ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє
+		// Показать многоугольник
 		static void showPolygon();
 
-		// РџРѕРєР°Р·Р°С‚СЊ С‚СЂРµСѓРіРѕР»СЊРЅРёРєРё
+		// Показать треугольники
 		static void showTriangles();
 
-		// РЎРѕР·РґР°С‚СЊ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє
+		// Создать многоугольник
 		static void createPolygon();
 
-		// РџРѕР»СѓС‡РёС‚СЊ РєРѕРѕСЂРґРёРЅР°С‚С‹ РѕС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+		// Получить координаты от пользователя
 		static void getPointCoords(float & x, float & y);
 
-		// Р”РѕР±Р°РІРёС‚СЊ С‚РѕС‡РєСѓ
+		// Добавить точку
 		static void addPoint();
 
-		// РЈРґР°Р»РёС‚СЊ С‚РѕС‡РєСѓ
+		// Удалить точку
 		static void removePoint();
 
-		// Р—Р°РјРµРЅРёС‚СЊ С‚РѕС‡РєСѓ
+		// Заменить точку
 		static void replacePoint();
 	};
 

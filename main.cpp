@@ -1,14 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <stdafx.h>
-// Р—РґРµСЃСЊ РїСЂРѕРїРёСЃР°РЅС‹ РєР»Р°СЃСЃС‹ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ С‚СЂРёР°РЅРіСѓР»СЏС†РёРµР№,
-// С‚Р°РєРёРµ РєР°Рє Vector, Polygon Рё Triangle.
-#include <base_classes.h>
-// Р—РґРµСЃСЊ РїСЂРѕРїРёСЃР°РЅ Р°Р»РіРѕСЂРёС‚Рј С‚СЂРёР°РЅРіСѓР»СЏС†РёРё
+// Здесь прописан алгоритм триангуляции,
+// а так же туда подключены базовые классы
 #include <triangulation.h>
-// Р РµР¶РёРј РєРѕРЅСЃРѕР»СЊРЅРѕРіРѕ СѓРїСЂР°РІР»РµРЅРёСЏ
+// Режим консольного управления
 #include <console.h>
-// Р РµР¶РёРј РіСЂР°С„РёС‡РµСЃРєРѕРіРѕ СѓРїСЂР°РІР»РµРЅРёСЏ
+// Режим графического управления
 #include <graphic.h>
 
 using namespace earclipping_triangulation;
@@ -22,13 +20,6 @@ using namespace earclipping_triangulation;
 int main()
 {
 	char choice;
-
-	vector<Triangle> v1;
-	v1.push_back(Triangle(Vector(50, 50), Vector(100, 50), Vector(75, 100)));
-	v1.push_back(Triangle(Vector(100, 100), Vector(200, 100), Vector(150, 200)));
-	
-	vector<Triangle> * ptr = &v1;
-	//setlocale(LC_ALL, "ru");
 
 	cout << "Do you want to use graphic mode? (y/n)  ";
 	cin >> choice;
@@ -76,7 +67,7 @@ int main()
 			break;
 
 		case '6':
-			// РћСЃРЅРѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ
+			// Основная функция
 			triangles = Triangulation::Triangulate(polygon);
 
 			if (triangles.empty()) cout << "Impossibly to triangulate this polygon.\n";

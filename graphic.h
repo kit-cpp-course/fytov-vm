@@ -14,21 +14,21 @@ namespace earclipping_triangulation
 		static size_t window_width, window_height;
 		// Main window
 		static sf::RenderWindow window;
-		// Р¦РµРЅС‚СЂ РѕРєРЅР°
+		// Центр окна
 		static sf::Vector2f windowCenter;
 		// Font
 		static sf::Font font;
-		// Р Р°РґРёСѓСЃ РІРµСЂС€РёРЅ
+		// Радиус вершин
 		static float vertexRadius;
-		// Р РёСЃСѓСЋС‰РёР№СЃСЏ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє
+		// Рисующийся многоугольник
 		static sf::ConvexShape drawingPoly;
-		// РўРѕР»С‰РёРЅР° Р»РёРЅРёР№
+		// Толщина линий
 		static float lineThickness;
-		// Р¦РІРµС‚ Р»РёРЅРёР№
+		// Цвет линий
 		static sf::Color lineColor;
-		// Р¦РІРµС‚ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРєР°
+		// Цвет многоугольника
 		static sf::Color polygonColor;
-		// Р¦РІРµС‚ РѕРєРЅР°
+		// Цвет окна
 		static sf::Color windowColor;
 		/// Strings
 		static size_t characterSize;
@@ -38,38 +38,38 @@ namespace earclipping_triangulation
 		static sf::Text text4;
 		static sf::Text text_error;
 		static sf::Color textColor;
-		// РџСЂРѕРёСЃС…РѕРґРёС‚ Р»Рё С‚СЂРёР°РЅРіСѓР»СЏС†РёСЏ РїРѕ С€Р°РіР°Рј
+		// Происходит ли триангуляция по шагам
 		static bool triangulatingStepByStep;
-		// РњРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє РґР»СЏ С‚СЂРёР°РЅРіСѓР»СЏС†РёРё РїРѕ С€Р°РіР°Рј
+		// Многоугольник для триангуляции по шагам
 		static Polygon updatedPoly;
-		// РўСЂРµСѓРіРѕР»СЊРЅРёРєРё РґР»СЏ С‚СЂРёР°РЅРіСѓР»СЏС†РёРё РїРѕ С€Р°РіР°Рј
+		// Треугольники для триангуляции по шагам
 		static vector<Triangle> updatedTriangles;
-		// Р’РµСЂС€РёРЅР° РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РґР»СЏ С‚СЂРёР°РЅРіСѓР»СЏС†РёРё РїРѕ С€Р°РіР°Рј
+		// Вершина на данный момент для триангуляции по шагам
 		static size_t currentVertex;
-		// Р’СЂРµРјСЏ(РјСЃ) РјРµР¶РґСѓ С‚СЂРёР°РЅРіСѓР»СЏС†РёСЏРјРё РїРѕ С€Р°РіР°Рј
+		// Время(мс) между триангуляциями по шагам
 		static sf::Time tsbs_time;
-		// SFML С‡Р°СЃС‹
+		// SFML часы
 		static sf::Clock sfmlClock;
 
-		// Р РµР¶РёРј РіСЂР°С„РёС‡РµСЃРєРѕРіРѕ РѕРєРЅР°
+		// Режим графического окна
 		static int activate();
 
-		// РџСЂРѕСЂРёСЃРѕРІРєР° РѕРєРЅР°
+		// Прорисовка окна
 		static void draw();
 
-		// РџСЂРѕСЂРёСЃРѕРІРєР° С‚СЂРµСѓРіРѕР»СЊРЅРёРєРѕРІ
+		// Прорисовка треугольников
 		static void drawTriangles();
 
-		// РћС‡РёСЃС‚РєР° РѕС‚ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРєР°
+		// Очистка от многоугольника
 		static void clear();
 
-		// РџСЂРѕС†РµРґСѓСЂР° РїРѕ Р·Р°РєСЂС‹С‚РёСЋ РѕРєРЅР°
+		// Процедура по закрытию окна
 		static void onCloseWindow();
 
-		// РЎРѕР·РґР°РµС‚ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє РёР· sfml ConvexShape
+		// Создает многоугольник из sfml ConvexShape
 		static Polygon fromSFMLConvexShape(const sf::ConvexShape & shape);
 
-		// РЎРѕР·РґР°РµС‚ sfml ConvexShape РёР· РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРєР°
+		// Создает sfml ConvexShape из многоугольника
 		static sf::ConvexShape toSFMLConvexShape(const Polygon & shape);
 	};
 
@@ -77,21 +77,21 @@ namespace earclipping_triangulation
 	size_t GraphicMode::window_width = 800, GraphicMode::window_height = 600;
 	// Main window
 	sf::RenderWindow GraphicMode::window;
-	// Р¦РµРЅС‚СЂ РѕРєРЅР°
+	// Центр окна
 	sf::Vector2f GraphicMode::windowCenter(sf::Vector2f(800 / 2.F, 600 / 2.F));
 	// Font
 	sf::Font GraphicMode::font;
-	// Р Р°РґРёСѓСЃ РІРµСЂС€РёРЅ
+	// Радиус вершин
 	float GraphicMode::vertexRadius = 3;
-	// Р РёСЃСѓСЋС‰РёР№СЃСЏ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє
+	// Рисующийся многоугольник
 	sf::ConvexShape GraphicMode::drawingPoly;
-	// РўРѕР»С‰РёРЅР° Р»РёРЅРёР№
+	// Толщина линий
 	float GraphicMode::lineThickness = 1.0F;
-	// Р¦РІРµС‚ Р»РёРЅРёР№
+	// Цвет линий
 	sf::Color GraphicMode::lineColor = sf::Color::White;
-	// Р¦РІРµС‚ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРєР°
+	// Цвет многоугольника
 	sf::Color GraphicMode::polygonColor = sf::Color::Black;
-	// Р¦РІРµС‚ РѕРєРЅР°
+	// Цвет окна
 	sf::Color GraphicMode::windowColor = sf::Color::Black;
 	/// Strings
 	size_t GraphicMode::characterSize = 16;
@@ -101,17 +101,17 @@ namespace earclipping_triangulation
 	sf::Text GraphicMode::text4("Press key R to see how polygon is triangulating", font, characterSize);
 	sf::Text GraphicMode::text_error("", font, characterSize + characterSize / 2);
 	sf::Color GraphicMode::textColor = sf::Color::White;
-	// РџСЂРѕРёСЃС…РѕРґРёС‚ Р»Рё С‚СЂРёР°РЅРіСѓР»СЏС†РёСЏ РїРѕ С€Р°РіР°Рј
+	// Происходит ли триангуляция по шагам
 	bool GraphicMode::triangulatingStepByStep = false;
-	// РњРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє РґР»СЏ С‚СЂРёР°РЅРіСѓР»СЏС†РёРё РїРѕ С€Р°РіР°Рј
+	// Многоугольник для триангуляции по шагам
 	Polygon GraphicMode::updatedPoly;
-	// РўСЂРµСѓРіРѕР»СЊРЅРёРєРё РґР»СЏ С‚СЂРёР°РЅРіСѓР»СЏС†РёРё РїРѕ С€Р°РіР°Рј
+	// Треугольники для триангуляции по шагам
 	vector<Triangle> GraphicMode::updatedTriangles;
-	// Р’РµСЂС€РёРЅР° РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РґР»СЏ С‚СЂРёР°РЅРіСѓР»СЏС†РёРё РїРѕ С€Р°РіР°Рј
+	// Вершина на данный момент для триангуляции по шагам
 	size_t GraphicMode::currentVertex;
-	// Р’СЂРµРјСЏ(РјСЃ) РјРµР¶РґСѓ С‚СЂРёР°РЅРіСѓР»СЏС†РёСЏРјРё РїРѕ С€Р°РіР°Рј
+	// Время(мс) между триангуляциями по шагам
 	sf::Time GraphicMode::tsbs_time = sf::milliseconds(500);
-	// SFML С‡Р°СЃС‹
+	// SFML часы
 	sf::Clock GraphicMode::sfmlClock;
 
 	//
@@ -122,7 +122,7 @@ namespace earclipping_triangulation
 
 	int GraphicMode::activate()
 	{
-		// Р—Р°РіСЂСѓР·РєР° С€СЂРёС„С‚Р° РёР· resource
+		// Загрузка шрифта из resource
 		if (!font.loadFromFile("resources/arial.ttf"))
 			return EXIT_FAILURE;
 
@@ -151,20 +151,20 @@ namespace earclipping_triangulation
 
 		drawingPoly = toSFMLConvexShape(polygon);
 
-		// РџСЂРѕСЂРёСЃРѕРІРєР° РѕРєРЅР°
+		// Прорисовка окна
 		draw();
 
-		// РџРѕРєР°Р¶РµРј РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РІ РєРѕРЅСЃРѕР»Рё
+		// Покажем многоугольник на данный момент в консоли
 		ConsoleMode::showPolygon();
 
-		// РћСЃРЅРѕРІРЅРѕР№ С†РёРєР»
+		// Основной цикл
 		while (window.isOpen())
 		{
 			// Process events
 			sf::Event event;
 			while (window.pollEvent(event))
 			{
-				// Р—Р°РєСЂС‹С‚СЊ РѕРєРЅРѕ: РІС‹С…РѕРґ
+				// Закрыть окно: выход
 				if (event.type == sf::Event::Closed)
 					window.close();
 
@@ -173,23 +173,23 @@ namespace earclipping_triangulation
 				//
 				if (event.type == sf::Event::MouseButtonPressed && !triangulatingStepByStep)
 				{
-					// РћС‡РёСЃС‚РєР°, РµСЃР»Рё Р±С‹Р»Р° С‚СЂРёР°РЅРіСѓР»СЏС†РёСЏ РёР»Рё РѕС€РёР±РєР°
+					// Очистка, если была триангуляция или ошибка
 					if (!triangles.empty() || text_error.getString() != "")
 					{
 						clear();
 					}
 
-					// РЎРѕР·РґР°РЅРёРµ С‚РѕС‡РєРё
+					// Создание точки
 					drawingPoly.setPointCount(drawingPoly.getPointCount() + 1);
 					drawingPoly.setPoint(drawingPoly.getPointCount() - 1, sf::Vector2f(sf::Mouse::getPosition(window)));
 
-					// РџРѕР»СѓС‡Р°РµРј РЅР°СЂРёСЃРѕРІР°РЅРЅС‹Р№ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє
+					// Получаем нарисованный многоугольник
 					polygon = fromSFMLConvexShape(drawingPoly);
 
-					// РџРѕРєР°Р¶РµРј РµРіРѕ Рё РІ РєРѕРЅСЃРѕР»Рё
+					// Покажем его и в консоли
 					ConsoleMode::showPolygon();
 
-					// РџСЂРѕСЂРёСЃРѕРІРєР° РѕРєРЅР°
+					// Прорисовка окна
 					draw();
 				}
 				//
@@ -197,33 +197,33 @@ namespace earclipping_triangulation
 				//
 				if (event.type == sf::Event::KeyPressed && !triangulatingStepByStep)
 				{
-					// РўСЂРёР°РЅРіСѓР»СЏС†РёСЏ
+					// Триангуляция
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::T))
 					{
-						// РџРѕР»СѓС‡Р°РµРј РЅР°СЂРёСЃРѕРІР°РЅРЅС‹Р№ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє
+						// Получаем нарисованный многоугольник
 						polygon = fromSFMLConvexShape(drawingPoly);
 
-						// РџРѕРєР°Р¶РµРј РµРіРѕ Рё РІ РєРѕРЅСЃРѕР»Рё
+						// Покажем его и в консоли
 						ConsoleMode::showPolygon();
 
-						// РћСЃРЅРѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ
+						// Основная функция
 						triangles = Triangulation::Triangulate(polygon);
 
 						if (triangles.empty()) text_error.setString("Impossibly to triangulate this polygon");
 						else ConsoleMode::showTriangles();
 
-						// РџСЂРѕСЂРёСЃРѕРІРєР° РѕРєРЅР°
+						// Прорисовка окна
 						draw();
 					}
-					// РЎС‚Р°СЂС‚ С‚СЂРёР°РЅРіСѓР»СЏС†РёРё РїРѕ С€Р°РіР°Рј
+					// Старт триангуляции по шагам
 					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 					{
-						// РџРѕРґРіРѕС‚РѕРІРєР° РїРµСЂРµРјРµРЅРЅС‹С…
+						// Подготовка переменных
 						updatedPoly = fromSFMLConvexShape(drawingPoly);
 						updatedTriangles.clear();
 						currentVertex = 0;
 
-						// РЎРѕСЃС‚РѕСЏРЅРёРµ С‚СЂРёР°РЅРіСѓР»СЏС†РёРё РЅР° РїРµСЂРІРѕРј С€Р°РіРµ
+						// Состояние триангуляции на первом шаге
 						Triangulation::triangulationState ts =
 							Triangulation::TriangulateStepByStep(updatedPoly, updatedTriangles, currentVertex);
 
@@ -233,23 +233,23 @@ namespace earclipping_triangulation
 							text_error.setString("Triangulation step by step failed");
 						else
 						{
-							// Р’СЃРµ С…РѕСЂРѕС€Рѕ: РЅР°С‡РёРЅР°РµРј С‚СЂРёР°РЅРіСѓР»СЏС†РёСЋ
+							// Все хорошо: начинаем триангуляцию
 							triangulatingStepByStep = true;
 							triangles.clear();
 							triangles.push_back(updatedTriangles[0]);
-							// РЎР±СЂРѕСЃ С‚Р°Р№РјРµСЂР°
+							// Сброс таймера
 							sfmlClock.restart();
 						}
 
-						// РџСЂРѕСЂРёСЃРѕРІРєР° РѕРєРЅР°
+						// Прорисовка окна
 						draw();
 					}
-					// РћС‡РёСЃС‚РєР° РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРєР°
+					// Очистка многоугольника
 					else if (sf::Keyboard::isKeyPressed(sf::Keyboard::C))
 					{
 						clear();
 
-						// РџСЂРѕСЂРёСЃРѕРІРєР° РѕРєРЅР°
+						// Прорисовка окна
 						draw();
 					}
 				}
@@ -269,14 +269,14 @@ namespace earclipping_triangulation
 							triangles.push_back(updatedTriangles.back());
 							break;
 						case Triangulation::triangulationState::END:
-							// РљРѕРЅРµС† С‚СЂРёР°РЅРіСѓР»СЏС†РёРё
+							// Конец триангуляции
 							triangulatingStepByStep = false;
 							triangles = updatedTriangles;
-							// Р’ РєРѕРЅСЃРѕР»СЊ
+							// В консоль
 							ConsoleMode::showTriangles();
 							break;
 						case Triangulation::triangulationState::FAIL:
-							// РљРѕРЅРµС† С‚СЂРёР°РЅРіСѓР»СЏС†РёРё
+							// Конец триангуляции
 							triangulatingStepByStep = false;
 							text_error.setString("Triangulation step by step failed");
 							break;
@@ -287,16 +287,16 @@ namespace earclipping_triangulation
 						triangles.clear();
 					}
 
-					// РџРµСЂРµР·Р°РїСѓСЃРє С‡Р°СЃРѕРІ
+					// Перезапуск часов
 					sfmlClock.restart();
 
-					// РџСЂРѕСЂРёСЃРѕРІРєР° РѕРєРЅР°
+					// Прорисовка окна
 					draw();
 				}
 			}
 		}
 
-		// РџРµСЂРµРґ Р·Р°РєСЂС‹С‚РёРµРј РѕРєРЅР°
+		// Перед закрытием окна
 		onCloseWindow();
 
 		cout << "\n--- CONSOLE MODE ---\n";
@@ -312,8 +312,8 @@ namespace earclipping_triangulation
 		// Draw the poly and triangles
 		if (!triangulatingStepByStep)
 		{
-			// РџСЂРё РѕР±С‹С‡РЅРѕР№ С‚СЂРёР°РЅРіСѓР»СЏС†РёРё РїСЂРѕСЂРёСЃРѕРІС‹РІР°РµС‚СЃСЏ
-			// РѕР±С‹С‡РЅС‹Р№ РјРЅРѕРіРѕСѓРіРѕР»СЊРЅРёРє
+			// При обычной триангуляции прорисовывается
+			// обычный многоугольник
 			window.draw(drawingPoly);
 			drawTriangles();
 			for (size_t i = 0; i < drawingPoly.getPointCount(); i++)
@@ -326,7 +326,7 @@ namespace earclipping_triangulation
 		}
 		else
 		{
-			// РџСЂРё С‚СЂРёР°РЅРіСѓР»СЏС†РёРё РїРѕ С€Р°РіР°Рј РїСЂРѕСЂРёСЃРѕРІС‹РІР°РµС‚СЃСЏ updatedPoly
+			// При триангуляции по шагам прорисовывается updatedPoly
 			sf::ConvexShape cs = toSFMLConvexShape(updatedPoly);
 			window.draw(cs);
 			drawTriangles();
@@ -339,7 +339,7 @@ namespace earclipping_triangulation
 			}
 		}
 
-		// РћС‚С†РµРЅС‚СЂРѕРІРєР° С‚РµРєСЃС‚Р° РїРѕ СЃРµСЂРµРґРёРЅРµ РѕРєРЅР°
+		// Отцентровка текста по середине окна
 		text_error.setPosition(windowCenter - sf::Vector2f(text_error.getLocalBounds().width / 2,
 			text_error.getCharacterSize() / 2));
 
@@ -380,7 +380,7 @@ namespace earclipping_triangulation
 		ConsoleMode::showPolygon();
 	}
 
-	void GraphicMode::onCloseWindow()
+	void GraphicMode::onCloseWindow() 
 	{
 		triangulatingStepByStep = false;
 	}
